@@ -31,16 +31,20 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-10 col-md-offset-2">
 						<nav>
 							<div class="logo-holder"></div>
 							<ul class="clearfix">
 								<li><a href="#about">About Us</a></li>
-								<li class="dot">.</li>
+								<!-- <li class="dot">.</li> -->
 								<li><a href="#work" class="r_spacer">Work</a></li>
 								<li><a href="#shop">Shop</a></li>
-								<li class="dot">.</li>
+								<!-- <li class="dot">.</li> -->
+								<li><a href="#news">News</a></li>
+								
 								<li><a href="#contact">Contact</a></li>
+								<!-- <li class="dot">.</li> -->
+								
 							</ul>
 						</nav>
 					</div>
@@ -276,6 +280,30 @@
 				</div>
 			</div>
 		</section>
+		<div class="container-fluid intro" id="news">
+			<div style="    justify-content: center;
+    display: flex;
+    font-size: xx-large;">News</div>
+			<div class="row">
+			
+				<div class="col-md-3 col-md-offset-2">
+					<h1 class="chain">Coinbase kullanıcılarının kripto paraları çalındı!</h1>
+					<p class="text-intro">Popüler olan her ortamda dolandırıcılık hikayeleri başlıyor. Bundan nasibini Coinbase de aldı. Binlerce kullanıcının kripto parası çalındı.\nBu içerik ilk olarak Coinbase kullanıcılarının kripto paraları çalındı! adresinde yayınlandı Teknoloji Haberleri - Shif…</p>
+				</div>
+				<div class="col-md-3 col-md-offset-2">
+					<h1 class="chain">Crypto assets pose financial stability challenges, warns IMF</h1>
+					<p class="text-intro">Coinbase has released a breach notification letter this week saying that a minimum of 6,000 user accounts were victim to hackers. The exchange has stated that the breach took place between March and May of this year. What We Know The letter notes that unautho…</p>
+				</div>
+				<div class="col-md-3 col-md-offset-2">
+					<h1 class="chain">At Least 6,000 Coinbase Accounts Exposed In Hack</h1>
+					<p class="text-intro">Crypto asset technologies have the potential as a tool for faster and cheaper cross-border payments, said the IMF in its chapter titled The Crypto Ecosystem and Financial Stability Challenges.</p>
+				</div>
+				<div class="col-md-3 col-md-offset-2">
+					<h1 class="chain">Coinbase kullanıcılarının kripto paraları çalındı!</h1>
+					<p class="text-intro">Popüler olan her ortamda dolandırıcılık hikayeleri başlıyor. Bundan nasibini Coinbase de aldı. Binlerce kullanıcının kripto parası çalındı.\nBu içerik ilk olarak Coinbase kullanıcılarının kripto paraları çalındı! adresinde yayınlandı Teknoloji Haberleri - Shif…</p>
+				</div>
+			</div>
+		</div>
 		<footer id="contact">
 			<div class="container">
 				<div class="row">
@@ -299,6 +327,7 @@
 				</div>
 			</div>
 		</footer>
+		
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
