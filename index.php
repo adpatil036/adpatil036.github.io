@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +22,8 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+		
 	</head>
 
 	<body>
@@ -31,7 +36,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
+					<div class="col-md-12 col-md-offset-2">
 						<nav>
 							<div class="logo-holder"></div>
 							<ul class="clearfix">
@@ -43,7 +48,19 @@
 								<li><a href="#news">News</a></li>
 								
 								<li><a href="#contact">Contact</a></li>
-								<!-- <li class="dot">.</li> -->
+
+								<?php
+									if($_SESSION["allowed"]) {
+									?>
+									Welcome <?php echo $_SESSION["name"]; ?>!!!   
+										  <li><a href="./logout.php"> Logout</a></li>
+									<?php
+									}else {
+									?>
+										<li><a href="./login.php">Login</a></li>
+									<?php
+									}
+								?>
 								
 							</ul>
 						</nav>
