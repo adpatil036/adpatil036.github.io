@@ -49,6 +49,8 @@ session_start();
 								
 								<li><a href="#contact">Contact</a></li>
 
+								<li><a href="./form.php">View Users</a></li>
+
 								<?php
 									if($_SESSION["allowed"]) {
 									?>
