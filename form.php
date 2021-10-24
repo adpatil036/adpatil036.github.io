@@ -121,9 +121,9 @@
             </div>
             <?php
                 $servername = "localhost";
-                $username = "admin";
-                $password = "admin";
-                $dbname = "dbname";
+                $username = "root";
+                $password = "root";
+                $dbname = "defaultdb";
 
                 // Create connection
                 $conn = mysqli_connect($servername, $username, $password,$dbname);
