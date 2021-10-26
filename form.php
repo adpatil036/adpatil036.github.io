@@ -75,7 +75,7 @@
             <div id="createForm" style="border: 1px solid black; width: 100%; display: none">
                     <div class="container">
                         <h2 style="padding: 20px 0 0 0">Register User</h2>
-                    <form id="register-form" class="form" method="post" action="create.php">
+                    <form id="register-form" class="form" method="post">
                         <div class="form-group" style="margin-bottom: 20px">
                             <label for="fname">First Name</label>
                             <input type="text" class="form-control" placeholder="Enter first name" name="fname" required="">
@@ -108,7 +108,7 @@
             <div id="searchForm" style="border: 1px solid black; width: 100%; display: none">
                 <div class="container">
                     <h1 style="padding: 20px 0 0 0">Search Form</h1>
-                    <form id="search-form" class="form-inline" method="post" action="search.php">
+                    <form id="search-form" class="form-inline" method="post">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" placeholder="Enter name" name="name" style="margin-bottom: 20px">
                         <label for="email">Email address</label>
@@ -119,126 +119,96 @@
                 </form>
                 </div>
             </div>
-            <!-- <?php
-                $servername = "localhost";
+            <?php
                 $username = "root";
-                $password = "root";
+                $password = "Sjsu@123";
                 $dbname = "defaultdb";
 
+                $db = new PDO('mysql:host=127.0.0.1;dbname=' . $dbname . ';charset=utf8', $username, $password);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $txt1 = "Connection Establishing";
-                echo "<h2>" . $txt1 . "</h2>";
+                extract($_POST);
+                if(isset($_POST['create'])) {
+                    $fname 		= $_POST['fname'];
+                    $lname 		= $_POST['lname'];
+                    $email 			= $_POST['email'];
+                    $cellphone	    = $_POST['cellphone'];
+                    $homephone 		= $_POST['homephone'];
+                    $address    = $_POST['address'];
 
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password,$dbname);
 
-                // Check connection
-                if ($conn->connect_error) {
-                    $txt1 = "Connection error";
-                    echo "<h2>" . $txt1 . "</h2>";
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                $txt1 = "Connection Succesfully in init";
-                echo "<h2>" . $txt1 . "</h2>";
-                
-                if ($conn) {
-
-                $txt1 = "Connection Succesfully";
-                echo "<h2>" . $txt1 . "</h2>";
-                    if(isset($_POST['create'])) {
-                        // get the post records
-                        $fname = $_POST['fname'];
-                        $lname = $_POST['lname'];
-                        $email = $_POST['email'];
-                        $cellphone = $_POST['cellphone'];
-                        $homephone = $_POST['homephone'];
-                        $address = $_POST['address'];
-        
-                        $sql = "INSERT INTO Users (fname, lname, email, cellphone, homephone, address) VALUES ('$fname', '$lname', '$email', '$cellphone', '$homephone', '$address')";
-                        // insert in database 
-                        $rs = mysqli_query($conn, $sql);
-                        if($rs)
-                        {
-                        	echo "<script> 
-                                    document.getElementById('popup').style.display = 'initial'; 
-                                  </script>";
-                            echo "<script> 
-                                    document.getElementById('register-form').reset();
-                                  </script>";
-                        } else {
-                            echo "Cannot insert";
+                        $sql = "insert into users (fname,lname,email,cellphone,homephone,address) VALUES (UPPER(?),UPPER(?),UPPER(?),UPPER(?),UPPER(?),UPPER(?))";
+                        $stmtinsert = $db->prepare($sql);
+                        $result = $stmtinsert->execute([$fname,$lname, $email, $cellphone, $homephone, $address]);
+                        if($result){
+                            echo '<div style="color:green;"><h3>'.$fname." ".$lname.' : User Successfully saved.</h3></div>';
+                        }else{
+                            echo 'There were errors while saving the data.';
                         }
-                    }
-                }
-                
-                if($conn) {
-                    if(isset($_POST['search'])) {
-                         $firstname = $_POST['name'];
-                         $emailid = $_POST['searchemail'];
-                         $cellphoneVal = $_POST['phone'];
-                         
-                         $query="Select * from Users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
-                         $result=mysqli_query($conn, $query);
-                         if($result->num_rows>0){
-                            echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
-                            echo '<thead style="border-bottom: 2px solid grey">';
-                            echo '<tr>';
-                            echo '<th scope="col">#</th>';
-                            echo '<th scope="col">First Name</th>';
-                            echo '<th scope="col">Last Name</th>';
-                            echo '<th scope="col">Email</th>';
-                            echo '<th scope="col">Address</th>';
-                            echo '<th scope="col">Home Phone</th>';
-                            echo '<th scope="col">Cell Phone</th>';
-                            echo '</tr>';
-                            echo '</thead>';
-                            echo '<tbody id="users-table-body">';
-                         	while($row=$result->fetch_assoc())
-                         	{
-                         	    $id=$row['id'];
-                             	$fname=$row['fname'];
-                             	$lname=$row['lname'];
-                         		$email=$row['email'];
-                         		$address=$row['address'];
-                         		$cellphone=$row['cellphone'];
-                         		$homephone=$row['homephone'];
-                         		echo '<tr>';
-                                echo "<td>$id</td>";
-                                echo "<td>$fname</td>";
-                                echo "<td>$lname</td>";
-                                echo "<td>$email</td>";
-                                echo "<td>$address</td>";
-                                echo "<td>$cellphone</td>";
-                                echo "<td>$homephone</td>";
-                                echo '</tr>';
-                         	}
-                         	echo '</tbody>';
-                         	echo '</table>';
-                         } else {
-                            echo '<table id="user-search-results" style="display: table; table-layout:fixed;word-break: break-word;margin-top: 20px; width: 100%">';
-                            echo '<thead style="border-bottom: 2px solid grey">';
-                            echo '<tr>';
-                            echo '<th scope="col">#</th>';
-                            echo '<th scope="col">First Name</th>';
-                            echo '<th scope="col">Last Name</th>';
-                            echo '<th scope="col">Email</th>';
-                            echo '<th scope="col">Address</th>';
-                            echo '<th scope="col">Home Phone</th>';
-                            echo '<th scope="col">Cell Phone</th>';
-                            echo '</tr>';
-                            echo '</thead>';
-                            echo '<tbody id="users-table-body">';
-                            echo '<tr>';
-                            echo "<td colspan='7' style='text-align:center'>No data found</td>";
-                            echo '</tr>';
-                         	echo '</tbody>';
-                         	echo '</table>';
-                         }
-                    }
-                }
-                $conn->close();
-            ?> -->
+                } elseif (isset($_POST['search'])) {
+                        $firstname = $_POST['name'];
+                        $emailid = $_POST['searchemail'];
+                        $cellphoneVal = $_POST['phone'];
+                        
+                        $query="Select * from Users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
+                        $result=mysqli_query($conn, $query);
+                        if($result->num_rows>0){
+                           echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
+                           echo '<thead style="border-bottom: 2px solid grey">';
+                           echo '<tr>';
+                           echo '<th scope="col">#</th>';
+                           echo '<th scope="col">First Name</th>';
+                           echo '<th scope="col">Last Name</th>';
+                           echo '<th scope="col">Email</th>';
+                           echo '<th scope="col">Address</th>';
+                           echo '<th scope="col">Home Phone</th>';
+                           echo '<th scope="col">Cell Phone</th>';
+                           echo '</tr>';
+                           echo '</thead>';
+                           echo '<tbody id="users-table-body">';
+                            while($row=$result->fetch_assoc())
+                            {
+                                $id=$row['id'];
+                                $fname=$row['fname'];
+                                $lname=$row['lname'];
+                                $email=$row['email'];
+                                $address=$row['address'];
+                                $cellphone=$row['cellphone'];
+                                $homephone=$row['homephone'];
+                                echo '<tr>';
+                               echo "<td>$id</td>";
+                               echo "<td>$fname</td>";
+                               echo "<td>$lname</td>";
+                               echo "<td>$email</td>";
+                               echo "<td>$address</td>";
+                               echo "<td>$cellphone</td>";
+                               echo "<td>$homephone</td>";
+                               echo '</tr>';
+                            }
+                            echo '</tbody>';
+                            echo '</table>';
+                        } else {
+                           echo '<table id="user-search-results" style="display: table; table-layout:fixed;word-break: break-word;margin-top: 20px; width: 100%">';
+                           echo '<thead style="border-bottom: 2px solid grey">';
+                           echo '<tr>';
+                           echo '<th scope="col">#</th>';
+                           echo '<th scope="col">First Name</th>';
+                           echo '<th scope="col">Last Name</th>';
+                           echo '<th scope="col">Email</th>';
+                           echo '<th scope="col">Address</th>';
+                           echo '<th scope="col">Home Phone</th>';
+                           echo '<th scope="col">Cell Phone</th>';
+                           echo '</tr>';
+                           echo '</thead>';
+                           echo '<tbody id="users-table-body">';
+                           echo '<tr>';
+                           echo "<td colspan='7' style='text-align:center'>No data found</td>";
+                           echo '</tr>';
+                            echo '</tbody>';
+                            echo '</table>';
+                        }
+                   }
+            ?>
       </div>
   </div>
 </body>
