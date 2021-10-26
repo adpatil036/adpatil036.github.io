@@ -1,4 +1,7 @@
 <?php
+$txt1 = "Connection successfully";
+echo "<h2>" . $txt1 . "</h2>";
+
 $username = "root";
 $password = "root";
 $dbname = "defaultdb";
