@@ -5,9 +5,19 @@ $dbname = "defaultdb";
 
 $txt1 =" connection Initated";
 echo "<h2>" . $txt1 . "</h2>";
+try
+{
 
 $db = new PDO('mysql:host=localhost;dbname=' . $dbname . ';charset=utf8', $username, $password);
+$txt1 =" connection Initated @@";
+echo "<h2>" . $txt1 . "</h2>";
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+}
+catch(Exception $e)
+{
+    echo $e->getMessage();
+}
 
 $txt1 =" connection succefully";
 echo "<h2>" . $txt1 . "</h2>";
