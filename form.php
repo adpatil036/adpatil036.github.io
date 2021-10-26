@@ -75,7 +75,7 @@
             <div id="createForm" style="border: 1px solid black; width: 100%; display: none">
                     <div class="container">
                         <h2 style="padding: 20px 0 0 0">Register User</h2>
-                    <form id="register-form" class="form" method="post">
+                    <form id="register-form" class="form" method="post" action="create.php">
                         <div class="form-group" style="margin-bottom: 20px">
                             <label for="fname">First Name</label>
                             <input type="text" class="form-control" placeholder="Enter first name" name="fname" required="">
@@ -108,7 +108,7 @@
             <div id="searchForm" style="border: 1px solid black; width: 100%; display: none">
                 <div class="container">
                     <h1 style="padding: 20px 0 0 0">Search Form</h1>
-                    <form id="search-form" class="form-inline" method="post">
+                    <form id="search-form" class="form-inline" method="post" action="search.php">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" placeholder="Enter name" name="name" style="margin-bottom: 20px">
                         <label for="email">Email address</label>
@@ -119,7 +119,7 @@
                 </form>
                 </div>
             </div>
-            <?php
+            <!-- <?php
                 $servername = "localhost";
                 $username = "root";
                 $password = "root";
@@ -238,7 +238,7 @@
                     }
                 }
                 $conn->close();
-            ?>
+            ?> -->
       </div>
   </div>
 </body>
