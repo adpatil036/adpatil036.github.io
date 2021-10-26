@@ -125,15 +125,27 @@
                 $password = "root";
                 $dbname = "defaultdb";
 
+
+                $txt1 = "Connection Establishing";
+                echo "<h2>" . $txt1 . "</h2>";
+
                 // Create connection
                 $conn = mysqli_connect($servername, $username, $password,$dbname);
 
                 // Check connection
                 if ($conn->connect_error) {
+                    $txt1 = "Connection error";
+                    echo "<h2>" . $txt1 . "</h2>";
                     die("Connection failed: " . $conn->connect_error);
                 }
+
+                $txt1 = "Connection Succesfully in init";
+                echo "<h2>" . $txt1 . "</h2>";
                 
                 if ($conn) {
+
+                $txt1 = "Connection Succesfully";
+                echo "<h2>" . $txt1 . "</h2>";
                     if(isset($_POST['create'])) {
                         // get the post records
                         $fname = $_POST['fname'];
