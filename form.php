@@ -164,10 +164,18 @@
                 $emailid = $_POST['searchemail'];
                 $cellphoneVal = $_POST['phone'];
 
-                $query = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
-                $result = mysqli_query($conn, $query);
+                $sql = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
+
+                // $stmt = $db->prepare($sql);
+                // $stmt->execute();
+                // $result = $stmt->fetchAll();
+
+                $result = $conn->query($sql);
+                // $query = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
+                // $result = mysqli_query($conn, $query);
                 echo ">>> ", $result;
                 if ($result->num_rows > 0) {
+                    echo ">>> Inside if ";
                     echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
                     echo '<thead style="border-bottom: 2px solid grey">';
                     echo '<tr>';
