@@ -175,8 +175,8 @@
                 foreach ($result as $row) {
                     echo '<strong>Name:  </strong>' . $row['fname'] . ' ' . $row['lname'] . '</br>';
                     echo '<strong>Email:  </strong>' . $row['email'] . '</br>';
-                    echo '<strong>Cell Phone:  </strong>' . $row['cell_phone'] . '</br>';
-                    echo '<strong>Mobile Phone:  </strong>' . $row['home_phone'] . '</br>';
+                    echo '<strong>Cell Phone:  </strong>' . $row['cellphone'] . '</br>';
+                    echo '<strong>Mobile Phone:  </strong>' . $row['homephone'] . '</br>';
                     echo '<strong>Address:  </strong>' . $row['address'] . '</br></br>';
                 }
 
