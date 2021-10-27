@@ -166,12 +166,10 @@
 
                 $sql = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
 
-                echo ">>> ", $sql;
                 $stmt = $db->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->fetchAll();
 
-                echo ">>> ", $result;
 
                 echo '<strong>Searched User Details : </strong></br></br>';
                 foreach ($result as $row) {
