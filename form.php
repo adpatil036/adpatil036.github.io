@@ -173,65 +173,74 @@
 
                 echo ">>> ", $result;
 
+                echo '<strong>Searched User Details : </strong></br></br>';
+                foreach ($result as $row) {
+                    echo '<strong>Name:  </strong>' . $row['fname'] . ' ' . $row['lname'] . '</br>';
+                    echo '<strong>Email:  </strong>' . $row['email'] . '</br>';
+                    echo '<strong>Cell Phone:  </strong>' . $row['cell_phone'] . '</br>';
+                    echo '<strong>Mobile Phone:  </strong>' . $row['home_phone'] . '</br>';
+                    echo '<strong>Address:  </strong>' . $row['address'] . '</br></br>';
+                }
+
                 // $result = $conn->query($sql);
                 // $query = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
                 // $result = mysqli_query($conn, $query);
-                echo ">>> ", $result;
-                if ($result->num_rows > 0) {
-                    echo ">>> Inside if ";
-                    echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
-                    echo '<thead style="border-bottom: 2px solid grey">';
-                    echo '<tr>';
-                    echo '<th scope="col">#</th>';
-                    echo '<th scope="col">First Name</th>';
-                    echo '<th scope="col">Last Name</th>';
-                    echo '<th scope="col">Email</th>';
-                    echo '<th scope="col">Address</th>';
-                    echo '<th scope="col">Home Phone</th>';
-                    echo '<th scope="col">Cell Phone</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody id="users-table-body">';
-                    while ($row = $result->fetch_assoc()) {
-                        $id = $row['id'];
-                        $fname = $row['fname'];
-                        $lname = $row['lname'];
-                        $email = $row['email'];
-                        $address = $row['address'];
-                        $cellphone = $row['cellphone'];
-                        $homephone = $row['homephone'];
-                        echo '<tr>';
-                        echo "<td>$id</td>";
-                        echo "<td>$fname</td>";
-                        echo "<td>$lname</td>";
-                        echo "<td>$email</td>";
-                        echo "<td>$address</td>";
-                        echo "<td>$cellphone</td>";
-                        echo "<td>$homephone</td>";
-                        echo '</tr>';
-                    }
-                    echo '</tbody>';
-                    echo '</table>';
-                } else {
-                    echo '<table id="user-search-results" style="display: table; table-layout:fixed;word-break: break-word;margin-top: 20px; width: 100%">';
-                    echo '<thead style="border-bottom: 2px solid grey">';
-                    echo '<tr>';
-                    echo '<th scope="col">#</th>';
-                    echo '<th scope="col">First Name</th>';
-                    echo '<th scope="col">Last Name</th>';
-                    echo '<th scope="col">Email</th>';
-                    echo '<th scope="col">Address</th>';
-                    echo '<th scope="col">Home Phone</th>';
-                    echo '<th scope="col">Cell Phone</th>';
-                    echo '</tr>';
-                    echo '</thead>';
-                    echo '<tbody id="users-table-body">';
-                    echo '<tr>';
-                    echo "<td colspan='7' style='text-align:center'>No data found</td>";
-                    echo '</tr>';
-                    echo '</tbody>';
-                    echo '</table>';
-                }
+                // echo ">>> ", $result;
+                // if ($result->num_rows > 0) {
+                //     echo ">>> Inside if ";
+                //     echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
+                //     echo '<thead style="border-bottom: 2px solid grey">';
+                //     echo '<tr>';
+                //     echo '<th scope="col">#</th>';
+                //     echo '<th scope="col">First Name</th>';
+                //     echo '<th scope="col">Last Name</th>';
+                //     echo '<th scope="col">Email</th>';
+                //     echo '<th scope="col">Address</th>';
+                //     echo '<th scope="col">Home Phone</th>';
+                //     echo '<th scope="col">Cell Phone</th>';
+                //     echo '</tr>';
+                //     echo '</thead>';
+                //     echo '<tbody id="users-table-body">';
+                //     while ($row = $result->fetch_assoc()) {
+                //         $id = $row['id'];
+                //         $fname = $row['fname'];
+                //         $lname = $row['lname'];
+                //         $email = $row['email'];
+                //         $address = $row['address'];
+                //         $cellphone = $row['cellphone'];
+                //         $homephone = $row['homephone'];
+                //         echo '<tr>';
+                //         echo "<td>$id</td>";
+                //         echo "<td>$fname</td>";
+                //         echo "<td>$lname</td>";
+                //         echo "<td>$email</td>";
+                //         echo "<td>$address</td>";
+                //         echo "<td>$cellphone</td>";
+                //         echo "<td>$homephone</td>";
+                //         echo '</tr>';
+                //     }
+                //     echo '</tbody>';
+                //     echo '</table>';
+                // } else {
+                //     echo '<table id="user-search-results" style="display: table; table-layout:fixed;word-break: break-word;margin-top: 20px; width: 100%">';
+                //     echo '<thead style="border-bottom: 2px solid grey">';
+                //     echo '<tr>';
+                //     echo '<th scope="col">#</th>';
+                //     echo '<th scope="col">First Name</th>';
+                //     echo '<th scope="col">Last Name</th>';
+                //     echo '<th scope="col">Email</th>';
+                //     echo '<th scope="col">Address</th>';
+                //     echo '<th scope="col">Home Phone</th>';
+                //     echo '<th scope="col">Cell Phone</th>';
+                //     echo '</tr>';
+                //     echo '</thead>';
+                //     echo '<tbody id="users-table-body">';
+                //     echo '<tr>';
+                //     echo "<td colspan='7' style='text-align:center'>No data found</td>";
+                //     echo '</tr>';
+                //     echo '</tbody>';
+                //     echo '</table>';
+                // }
             }
             ?>
         </div>
