@@ -166,11 +166,14 @@
 
                 $sql = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
 
-                // $stmt = $db->prepare($sql);
-                // $stmt->execute();
-                // $result = $stmt->fetchAll();
+                echo ">>> ", $sql;
+                $stmt = $db->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
 
-                $result = $conn->query($sql);
+                echo ">>> ", $result;
+
+                // $result = $conn->query($sql);
                 // $query = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
                 // $result = mysqli_query($conn, $query);
                 echo ">>> ", $result;
