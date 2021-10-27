@@ -137,9 +137,6 @@
 
                 $db = new PDO('mysql:host=127.0.0.1;dbname=' . $dbname . ';charset=utf8', $username, $password);
                 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                $txt1 = " connection succefully for db";
-                echo "<h2>" . $txt1 . "</h2>";
             } catch (Exception $e) {
                 echo $e->getMessage();
             }
@@ -167,7 +164,7 @@
                 $emailid = $_POST['searchemail'];
                 $cellphoneVal = $_POST['phone'];
 
-                $query = "Select * from Users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
+                $query = "Select * from users where fname like '$firstname' OR email like '$emailid' OR cellphone like '$cellphoneVal'";
                 $result = mysqli_query($conn, $query);
                 if ($result->num_rows > 0) {
                     echo '<table id="user-search-results" cellspacing="0" cellpadding="1" border="1" width="300" class="table" style="table-layout:fixed;word-break: break-word;display: table; margin-top: 20px; width: 100%">';
