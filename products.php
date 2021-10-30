@@ -151,15 +151,6 @@
                             <strong>Email:</strong> vintagebike@gmail.com<br>
                         </p>
                     </div>
-
-                    <div class="col footer-newsletter">
-                        <h4>Join Our Newsletter</h4>
-                        <p>To get updates on latest deals</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-
                 </div>
             </div>
         </div>
