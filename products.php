@@ -106,7 +106,7 @@
                 <div class="row gy-4">
 
                     <div class="col-lg-8">
-                        <img src="assets/img/portfolio/portfolio-7.jpeg" style="width: 50%" alt="">
+                        <img src="http://adarshpatil.me/img/left-box-2.jpg" style="width: 50%" alt="">
                     </div>
 
                     <div class="col-lg-4">
@@ -142,13 +142,13 @@
                 <div class="row">
 
                     <div class="col footer-contact">
-                        <h3>Craft Corner</h3>
+                        <h3>Vintage Bike</h3>
                         <p>
-                            171 W Julian Street <br>
+                            33rd South Villa Torino <br>
                             San Jose, CA 95110<br>
                             United States <br><br>
                             <strong>Phone:</strong> +1 6693061518<br>
-                            <strong>Email:</strong> craftcorner@gmail.com<br>
+                            <strong>Email:</strong> vintagebike@gmail.com<br>
                         </p>
                     </div>
 
