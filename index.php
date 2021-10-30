@@ -36,7 +36,7 @@ session_start();
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12 col-md-offset-2">
+				<div class="col-md-12 col-md-offset-1">
 					<nav>
 						<div class="logo-holder"></div>
 						<ul class="clearfix">
