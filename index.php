@@ -38,18 +38,19 @@ session_start();
 			<div class="row">
 				<div class="col-md-12 col-md-offset-1">
 					<nav>
-						<div class="logo-holder"></div>
 						<ul class="clearfix">
 							<li><a href="#about">About Us</a></li>
 							<!-- <li class="dot">.</li> -->
-							<li><a href="#work" class="r_spacer">Work</a></li>
+							<li><a href="#work">Work</a></li>
 							<li><a href="#shop">Products</a></li>
 							<!-- <li class="dot">.</li> -->
 							<li><a href="#news">News</a></li>
 
 							<li><a href="#contact">Contact</a></li>
 
-							<li><a href="./form.php">View Users</a></li>
+							<li><a href="./form.php">Add Users</a></li>
+
+							<li><a href="./viewUsers.php">View Users</a></li>
 
 							<?php
 							if ($_SESSION["allowed"]) {
