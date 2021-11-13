@@ -17,7 +17,7 @@ $getData->execute();
 $usersRow = $getData->fetchAll();
 if (count($usersRow) > 0) {
     foreach ($usersRow as $user) {
-        echo $user['fname'] . $user['lname'] . $user['email'] .  '<br />';
+        echo $user['fname'] . "&nbsp;&nbsp;&nbsp;" . $user['lname'] . "&nbsp;&nbsp;&nbsp;" . $user['email'] .  '<br />';
     }
 } else {
     echo 'No data';
